@@ -1,0 +1,93 @@
+newmtl scene_diffuse_material
+	mat_expr diffuse(reflectance: "../textures/envmap.exr")
+
+newmtl scene_emissive_material
+	mat_expr emissive(radiance: {10,10,10})
+
+newmtl backdrop
+	mat_expr diffuse(reflectance: "../textures/checkerboard-gray.jpg")
+
+newmtl area_light
+	mat_expr emissive(radiance: {20, 20, 20})
+
+### Example materials
+
+newmtl diffuse_gray
+	mat_expr diffuse(reflectance: {0.588, 0.588, 0.588})
+
+newmtl diffuse_red
+	mat_expr diffuse(reflectance: {0.999, 0, 0})
+
+newmtl diffuse_blue
+	mat_expr diffuse(reflectance: {0, 0, 0.999})
+
+newmtl diffuse_white
+	mat_expr diffuse(reflectance: {0.999, 0.999, 0.999})
+
+newmtl diffuse_textured
+	mat_expr diffuse(reflectance: "../textures/stones-d.jpg")
+
+newmtl smooth_conductor_gold
+	mat_expr conductor(intIOR: "gold", specularity: {1.0, 0.766, 0.336})
+
+newmtl smooth_conductor_silver
+	mat_expr conductor(intIOR: "silver", specularity: {0.971519, 0.959915, 0.91532})
+
+newmtl smooth_conductor_textured
+	mat_expr conductor(specularity: "../textures/checkerboard-bw.jpg")
+
+newmtl smooth_dielectric_glass
+	mat_expr dielectric(intIOR: "glass")
+
+newmtl smooth_dielectric_tinted_glass
+	mat_expr dielectric(intIOR: "glass", specularity: {0.04, 0.04, 0.04}, transmittance: {0.5, 0, 0.9})
+
+newmtl rough_conductor_gold_k0.1
+	mat_expr roughConductor(intIOR: "gold", specularity: {1.0, 0.766, 0.336}, roughness:0.1)
+
+newmtl rough_conductor_gold_k0.25
+	mat_expr roughConductor(intIOR: "gold", specularity: {1.0, 0.766, 0.336}, roughness:0.25)
+
+newmtl rough_conductor_gold_k0.5
+	mat_expr roughConductor(intIOR: "gold", specularity: {1.0, 0.766, 0.336}, roughness:0.5)
+
+newmtl rough_conductor_gold_k0.75
+	mat_expr roughConductor(intIOR: "gold", specularity: {1.0, 0.766, 0.336}, roughness:0.75)
+
+newmtl rough_conductor_gold_modulated_roughness
+	mat_expr roughConductor(intIOR: "gold", specularity: {1.0, 0.766, 0.336}, roughness:"../textures/stones-s.jpg")
+
+newmtl rough_dielectric_glass
+	mat_expr roughDielectric(intIOR: "glass", specularity: {0.9, 0.9, 0.9}, roughness: 0.2)
+
+### Test object interior and exterior
+
+newmtl inside
+	include diffuse_red
+
+newmtl case
+#	include diffuse_red
+#	include diffuse_textured
+
+#	include smooth_conductor_gold
+#	include smooth_conductor_silver
+#	include smooth_conductor_textured
+
+#	include smooth_dielectric_glass
+#	include smooth_dielectric_tinted_glass
+
+#	include rough_conductor_gold_k0.1
+#	include rough_conductor_gold_k0.25
+#	include rough_conductor_gold_k0.5
+#	include rough_conductor_gold_k0.75
+
+	include rough_dielectric_glass
+
+#	mat_expr mix("diffuse_red", "diffuse_blue", 0.5)
+#	mat_expr mix("diffuse_textured", "smooth_conductor_silver", 0.6)
+
+#	mat_expr mixMap("smooth_conductor_gold", "smooth_conductor_silver", "../textures/checkerboard-bw.jpg")
+
+#	mat_expr bumpMap("diffuse_textured", "../textures/stones-b.jpg")
+	
+#	mat_expr normalMap("diffuse_textured", "../textures/stones-n.jpg")

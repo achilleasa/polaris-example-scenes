@@ -1,0 +1,35 @@
+# Blender MTL File: 'None'
+# Material Count: 8
+
+newmtl backWall
+Kd 0.580000 0.568000 0.544000
+
+newmtl ceiling
+Kd 0.580000 0.568000 0.544000
+
+newmtl floor
+Kd 0.580000 0.568000 0.544000
+
+newmtl leftWall
+Kd 0.504000 0.052000 0.040000
+
+newmtl light
+Ke 36 33 24
+
+newmtl rightWall
+Kd 0.112000 0.360000 0.072800
+
+newmtl shortBox
+Kd 0.580000 0.568000 0.544000
+
+newmtl tallBox
+Kd 0.580000 0.568000 0.544000
+
+newmtl leftSphere
+	mat_expr conductor(intIOR: "silver")
+
+newmtl rightSphere
+	mat_expr normalMap( mix(diffuse(reflectance: "../textures/stones-d.jpg"), conductor(specularity: "../textures/stones-s.jpg"), 0.5), "../textures/stones-n.jpg")
+
+newmtl water
+	mat_expr dielectric(intIOR: "water")

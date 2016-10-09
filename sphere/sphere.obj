@@ -1,0 +1,6 @@
+camera_eye -15 0 0
+camera_look 0 0 0
+
+mtllib materials.mtl
+
+call models/sphere.obj

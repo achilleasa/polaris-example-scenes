@@ -1,0 +1,10 @@
+call mitsuba.obj
+
+v -1 5 1
+v -1 5 -1
+v 1 5 -1
+v -1 5 1
+
+g area_light
+usemtl area_light
+f -4 -3 -2 -1

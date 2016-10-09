@@ -1,0 +1,9 @@
+mtllib materials.mtl
+
+camera_eye  -2 1.5 -2
+camera_look 0 1 0
+call models/diamond.obj
+call models/floor.obj
+
+#instance floor 0 0 0   0 0 0   1 1 1
+instance diamond 0 0 0   0 0 0   1 1 1

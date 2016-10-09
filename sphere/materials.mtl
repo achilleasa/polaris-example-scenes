@@ -1,0 +1,19 @@
+newmtl scene_diffuse_material
+	mat_expr diffuse(reflectance: "../textures/envmap.exr")
+
+newmtl scene_emissive_material
+	mat_expr emissive(radiance: {10,10,10})
+
+### Example materials
+
+newmtl smooth_dielectric_with_textured_specularity
+	mat_expr dielectric(intIOR: "glass", specularity: "../textures/checkerboard-blue.jpg")
+
+newmtl smooth_dielectric_with_textured_transmittance
+	mat_expr dielectric(intIOR: "glass", transmittance: "../textures/checkerboard-blue.jpg")
+
+newmtl rough_dielectric_with_textured_roughness
+	mat_expr roughDielectric(intIOR: "glass", roughness: "../textures/earth-r.jpg")
+
+newmtl sphere
+	include rough_dielectric_with_textured_roughness

@@ -1,0 +1,11 @@
+newmtl scene_diffuse_material
+	mat_expr diffuse(reflectance: "../textures/envmap.exr")
+
+newmtl scene_emissive_material
+	mat_expr emissive(radiance: {1, 1, 1})
+
+newmtl floor
+	mat_expr diffuse()
+
+newmtl diamond
+	mat_expr disperse(dielectric(intIOR: "diamond"), intIOR: {2.40,2.43,2.46}, extIOR: {0,0,0})
